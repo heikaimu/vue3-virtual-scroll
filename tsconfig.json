@@ -12,7 +12,10 @@
     "resolveJsonModule": true,
     "noUnusedLocals": true,
     "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "types": [
+      "vitest/importMeta"
+    ]
   },
   "paths": {
     "@/*": ["src/*"]

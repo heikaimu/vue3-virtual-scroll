@@ -2,7 +2,7 @@
  * @Author: Yaowen Liu
  * @Date: 2022-03-11 16:26:27
  * @LastEditors: Yaowen Liu
- * @LastEditTime: 2022-03-17 13:45:31
+ * @LastEditTime: 2022-03-17 13:50:13
  */
 import path from 'path'
 import { defineConfig } from 'vite'
@@ -12,13 +12,11 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig(({ mode }) => {
   let buildConfig = {}
   if (mode === 'example') {
-    console.log('example')
     buildConfig = {
-      outDir: 'preview',
+      outDir: 'example',
     }
   }
   else if (mode === 'lib') {
-    console.log('lib')
     buildConfig = {
       lib: {
         entry: path.resolve(__dirname, 'src/index.ts'),

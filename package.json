@@ -25,6 +25,7 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@vueuse/core": "^8.1.1",
     "my-lib": "file:my-lib-0.0.1.tgz",
     "vue": "^3.2.16"
   },

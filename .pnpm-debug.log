@@ -1,0 +1,182 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 debug pnpm:package-manifest": {
+    "initial": {
+      "version": "0.0.1",
+      "name": "my-lib",
+      "files": [
+        "dist"
+      ],
+      "main": "./dist/my-lib.umd.js",
+      "module": "./dist/my-lib.es.js",
+      "exports": {
+        ".": {
+          "import": "./dist/my-lib.es.js",
+          "require": "./dist/my-lib.umd.js"
+        },
+        "./style.css": {
+          "import": "./dist/style.css"
+        }
+      },
+      "types": "./dist/types/index.d.ts",
+      "scripts": {
+        "dev": "vite",
+        "build-lib": "vite build --mode=lib && vue-tsc --declaration --emitDeclarationOnly && mv dist/src dist/types",
+        "build-example": "vue-tsc --noEmit && vite build --mode=example",
+        "serve": "vite preview",
+        "test": "vitest",
+        "typecheck": "vue-tsc --noEmit"
+      },
+      "dependencies": {
+        "my-lib": "file:my-lib-0.0.1.tgz",
+        "vue": "^3.2.16"
+      },
+      "devDependencies": {
+        "@antfu/eslint-config": "^0.18.8",
+        "@types/node": "^17.0.21",
+        "@vitejs/plugin-vue": "^1.9.3",
+        "autoprefix": "^1.0.1",
+        "autoprefixer": "^10.4.2",
+        "eslint": "^8.10.0",
+        "postcss": "^8.4.8",
+        "tailwindcss": "^3.0.23",
+        "typescript": "^4.4.3",
+        "vite": "^2.6.4",
+        "vitest": "^0.6.0",
+        "vue-tsc": "^0.33.2-patch.1"
+      },
+      "eslintConfig": {
+        "extends": "@antfu"
+      }
+    },
+    "prefix": "/Users/liuyaowen/Desktop/personal/github/vue3-ts-lib"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": false,
+    "storeDir": "/Users/liuyaowen/.pnpm-store/v3",
+    "virtualStoreDir": "/Users/liuyaowen/Desktop/personal/github/vue3-ts-lib/node_modules/.pnpm"
+  },
+  "3 debug pnpm:stage": {
+    "prefix": "/Users/liuyaowen/Desktop/personal/github/vue3-ts-lib",
+    "stage": "resolution_started"
+  },
+  "4 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@antfu/eslint-config/0.18.8",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@antfu/eslint-config",
+      "rawSpec": "^0.18.8"
+    }
+  },
+  "5 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@types/node/17.0.21",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@types/node",
+      "rawSpec": "^17.0.21"
+    }
+  },
+  "6 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@vitejs/plugin-vue/1.10.2",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@vitejs/plugin-vue",
+      "rawSpec": "^1.9.3"
+    }
+  },
+  "7 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/autoprefix/1.0.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "autoprefix",
+      "rawSpec": "^1.0.1"
+    }
+  },
+  "8 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/autoprefixer/10.4.3",
+    "wanted": {
+      "dependentId": ".",
+      "name": "autoprefixer",
+      "rawSpec": "^10.4.2"
+    }
+  },
+  "9 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/eslint/8.11.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "eslint",
+      "rawSpec": "^8.10.0"
+    }
+  },
+  "10 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/postcss/8.4.11",
+    "wanted": {
+      "dependentId": ".",
+      "name": "postcss",
+      "rawSpec": "^8.4.8"
+    }
+  },
+  "11 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/tailwindcss/3.0.23",
+    "wanted": {
+      "dependentId": ".",
+      "name": "tailwindcss",
+      "rawSpec": "^3.0.23"
+    }
+  },
+  "12 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/typescript/4.6.2",
+    "wanted": {
+      "dependentId": ".",
+      "name": "typescript",
+      "rawSpec": "^4.4.3"
+    }
+  },
+  "13 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/vite/2.8.6",
+    "wanted": {
+      "dependentId": ".",
+      "name": "vite",
+      "rawSpec": "^2.6.4"
+    }
+  },
+  "14 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/vitest/0.6.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "vitest",
+      "rawSpec": "^0.6.0"
+    }
+  },
+  "15 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/vue-tsc/0.33.2-patch.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "vue-tsc",
+      "rawSpec": "^0.33.2-patch.1"
+    }
+  },
+  "16 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/vue/3.2.31",
+    "wanted": {
+      "dependentId": ".",
+      "name": "vue",
+      "rawSpec": "^3.2.16"
+    }
+  },
+  "17 error pnpm": {
+    "errno": -2,
+    "code": "ENOENT",
+    "syscall": "open",
+    "path": "/Users/liuyaowen/Desktop/personal/github/vue3-ts-lib/my-lib-0.0.1.tgz",
+    "pkgsStack": [],
+    "err": {
+      "name": "pnpm",
+      "message": "ENOENT: no such file or directory, open '/Users/liuyaowen/Desktop/personal/github/vue3-ts-lib/my-lib-0.0.1.tgz'",
+      "code": "ENOENT",
+      "stack": "pnpm: ENOENT: no such file or directory, open '/Users/liuyaowen/Desktop/personal/github/vue3-ts-lib/my-lib-0.0.1.tgz'"
+    }
+  }
+}

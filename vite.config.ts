@@ -2,38 +2,51 @@
  * @Author: Yaowen Liu
  * @Date: 2022-03-11 16:26:27
  * @LastEditors: Yaowen Liu
- * @LastEditTime: 2022-03-16 15:04:44
+ * @LastEditTime: 2022-03-17 13:45:31
  */
 import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  build: {
-    lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'MyLib',
-      fileName: format => `my-lib.${format}.js`,
-    },
-    rollupOptions: {
-      // 确保外部化处理那些你不想打包进库的依赖
-      external: ['vue'],
-      output: {
-        // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
-        globals: {
-          vue: 'Vue',
+export default defineConfig(({ mode }) => {
+  let buildConfig = {}
+  if (mode === 'example') {
+    console.log('example')
+    buildConfig = {
+      outDir: 'preview',
+    }
+  }
+  else if (mode === 'lib') {
+    console.log('lib')
+    buildConfig = {
+      lib: {
+        entry: path.resolve(__dirname, 'src/index.ts'),
+        name: 'MyLib',
+        fileName: (format: any) => `my-lib.${format}.js`,
+      },
+      rollupOptions: {
+        // 确保外部化处理那些你不想打包进库的依赖
+        external: ['vue'],
+        output: {
+          // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
+          globals: {
+            vue: 'Vue',
+          },
         },
       },
+    }
+  }
+  return {
+    build: buildConfig,
+    resolve: {
+      alias: {
+        '@/': `${path.resolve(__dirname, 'src')}/`,
+      },
     },
-  },
-  resolve: {
-    alias: {
-      '@/': `${path.resolve(__dirname, 'src')}/`,
+    plugins: [vue()],
+    server: {
+      open: true,
     },
-  },
-  plugins: [vue()],
-  server: {
-    open: true,
-  },
+  }
 })

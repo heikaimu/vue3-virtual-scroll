@@ -18,7 +18,8 @@
   "types": "./dist/types/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly && mv dist/src dist/types",
+    "build-lib": "vite build --mode=lib && vue-tsc --declaration --emitDeclarationOnly && mv dist/src dist/types",
+    "build-example": "vue-tsc --noEmit && vite build --mode=example",
     "serve": "vite preview",
     "test": "vitest",
     "typecheck": "vue-tsc --noEmit"

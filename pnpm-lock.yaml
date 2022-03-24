@@ -7,6 +7,7 @@ specifiers:
   '@vueuse/core': ^8.1.1
   autoprefix: ^1.0.1
   autoprefixer: ^10.4.2
+  cross-env: ^7.0.3
   eslint: ^8.10.0
   my-lib: file:my-lib-0.0.1.tgz
   postcss: ^8.4.8
@@ -28,6 +29,7 @@ devDependencies:
   '@vitejs/plugin-vue': 1.10.2_vite@2.8.6
   autoprefix: 1.0.1
   autoprefixer: 10.4.3_postcss@8.4.11
+  cross-env: 7.0.3
   eslint: 8.11.0
   postcss: 8.4.11
   tailwindcss: 3.0.23_autoprefixer@10.4.3
@@ -929,6 +931,14 @@ packages:
       parse-json: 5.2.0
       path-type: 4.0.0
       yaml: 1.10.2
+    dev: true
+
+  /cross-env/7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
     dev: true
 
   /cross-spawn/7.0.3:
@@ -3228,7 +3238,7 @@ packages:
     dev: true
 
   file:my-lib-0.0.1.tgz:
-    resolution: {integrity: sha512-ihYcWRv1PscNfd9v/+C74Mv5KvLHnfg6G/kYRguCM/h8mq6X1xtDD9d1c87PjyJ4Z0WEtmQtDBkV7+10GRSHaw==, tarball: file:my-lib-0.0.1.tgz}
+    resolution: {integrity: sha512-M/oxX39VWDJFw8QfX0w6nyEmyD0Q0tOlwy6gVDs+zBSU6802ngexkRX8xC6pljloJoO0MkXonZWPeDVNFPqR9w==, tarball: file:my-lib-0.0.1.tgz}
     name: my-lib
     version: 0.0.1
     dependencies:

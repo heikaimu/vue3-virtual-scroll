@@ -1,28 +1,13 @@
 <!--
  * @Author: Yaowen Liu
- * @Date: 2022-03-11 16:26:27
+ * @Date: 2022-03-17 14:12:40
  * @LastEditors: Yaowen Liu
- * @LastEditTime: 2022-03-16 16:04:38
+ * @LastEditTime: 2022-03-24 15:03:40
 -->
-打包
-```
-npm run build
-```
+```bash
+// 打包lib
+npm run build:npm
 
-生成本地测试包
-```
-npm pack
-```
-
-安装本地测试包
-```
-npm i ./xxxxx.tgz
-```
-
-引入测试包进行测试，没有问题则发布。
-发布前修改版本号
-```
-npm login
-
-npm publish
+// 打包example
+npm run build:page
 ```

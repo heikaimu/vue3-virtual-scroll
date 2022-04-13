@@ -1,11 +1,9 @@
 {
-  "version": "0.0.1",
   "name": "my-lib",
-  "files": [
-    "dist"
-  ],
+  "version": "0.0.1",
   "main": "./dist/my-lib.umd.js",
   "module": "./dist/my-lib.es.js",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/my-lib.es.js",
@@ -15,7 +13,9 @@
       "import": "./dist/style.css"
     }
   },
-  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build:npm": "cross-env TARGET=npm vite build && vue-tsc --declaration --emitDeclarationOnly && mv dist/lib dist/types",

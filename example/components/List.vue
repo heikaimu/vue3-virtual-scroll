@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
-import { VirtualScroll } from 'vue3-virtual-scroll'
+// import { VirtualScroll } from 'vue3-virtual-scroll'
 import { getList } from '../api/product'
-// import { VirtualScroll } from '../../lib/index'
-import 'vue3-virtual-scroll/style.css'
+import { VirtualScroll } from '../../lib/index'
+// import 'vue3-virtual-scroll/style.css'
 
 import ProductCard from './ProductCard.vue'
 const list = ref<any[]>([])

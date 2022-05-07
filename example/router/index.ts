@@ -2,6 +2,10 @@ import * as VueRouter from 'vue-router'
 
 const routes = [
   {
+    path: '/',
+    redirect: '/list',
+  },
+  {
     path: '/list',
     component: () => import('../components/List.vue'),
   },

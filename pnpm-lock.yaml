@@ -17,13 +17,11 @@ specifiers:
   vue: ^3.2.16
   vue-router: ^4.0.15
   vue-tsc: ^0.33.2-patch.1
-  vue3-virtual-scroll: file:vue3-virtual-scroll-0.0.1.tgz
 
 dependencies:
   '@vueuse/core': 8.1.1_vue@3.2.31
   vue: 3.2.31
   vue-router: 4.0.15_vue@3.2.31
-  vue3-virtual-scroll: file:vue3-virtual-scroll-0.0.1.tgz
 
 devDependencies:
   '@antfu/eslint-config': 0.18.8_eslint@8.11.0+typescript@4.6.2
@@ -3251,15 +3249,3 @@ packages:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
     dev: true
-
-  file:vue3-virtual-scroll-0.0.1.tgz:
-    resolution: {integrity: sha512-I0Ud4XkWSXiXrJ9pQKzZBP4zs2f4RScoWUyny1MLYAIXLnKsbEifSriBCMA9FdgB/YXJk9mzx30XuI8447sg0g==, tarball: file:vue3-virtual-scroll-0.0.1.tgz}
-    name: vue3-virtual-scroll
-    version: 0.0.1
-    dependencies:
-      '@vueuse/core': 8.1.1_vue@3.2.31
-      vue: 3.2.31
-      vue-router: 4.0.15_vue@3.2.31
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-    dev: false

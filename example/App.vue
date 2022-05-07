@@ -2,7 +2,7 @@
  * @Author: Yaowen Liu
  * @Date: 2022-03-11 16:26:27
  * @LastEditors: Yaowen Liu
- * @LastEditTime: 2022-05-07 15:43:57
+ * @LastEditTime: 2022-05-07 17:18:31
 -->
 <template>
   <div class="web-container">
@@ -13,11 +13,12 @@
         </keep-alive>
       </transition>
     </router-view>
+    <Github />
   </div>
 </template>
 
 <script setup lang="ts">
-
+import Github from './components/Github.vue'
 </script>
 
 <style>

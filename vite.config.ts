@@ -2,7 +2,7 @@
  * @Author: Yaowen Liu
  * @Date: 2022-03-11 16:26:27
  * @LastEditors: Yaowen Liu
- * @LastEditTime: 2022-03-24 14:51:01
+ * @LastEditTime: 2022-05-07 09:53:08
  */
 import path from 'path'
 import { defineConfig } from 'vite'
@@ -36,6 +36,7 @@ export default defineConfig({
   build: { ...buildConfig },
   plugins: [vue()],
   server: {
+    host: '0.0.0.0',
     open: true,
   },
 })

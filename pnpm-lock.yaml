@@ -9,19 +9,21 @@ specifiers:
   autoprefixer: ^10.4.2
   cross-env: ^7.0.3
   eslint: ^8.10.0
-  my-lib: file:my-lib-0.0.1.tgz
   postcss: ^8.4.8
   tailwindcss: ^3.0.23
   typescript: ^4.4.3
   vite: ^2.6.4
   vitest: ^0.6.0
   vue: ^3.2.16
+  vue-router: ^4.0.15
   vue-tsc: ^0.33.2-patch.1
+  vue3-virtual-scroll: file:vue3-virtual-scroll-0.0.1.tgz
 
 dependencies:
   '@vueuse/core': 8.1.1_vue@3.2.31
-  my-lib: file:my-lib-0.0.1.tgz
   vue: 3.2.31
+  vue-router: 4.0.15_vue@3.2.31
+  vue3-virtual-scroll: file:vue3-virtual-scroll-0.0.1.tgz
 
 devDependencies:
   '@antfu/eslint-config': 0.18.8_eslint@8.11.0+typescript@4.6.2
@@ -502,6 +504,10 @@ packages:
     dependencies:
       '@vue/compiler-dom': 3.2.31
       '@vue/shared': 3.2.31
+    dev: false
+
+  /@vue/devtools-api/6.1.4:
+    resolution: {integrity: sha512-IiA0SvDrJEgXvVxjNkHPFfDx6SXw0b/TUkqMcDZWNg9fnCAHbTpoo59YfJ9QLFkwa3raau5vSlRVzMSLDnfdtQ==}
     dev: false
 
   /@vue/reactivity-transform/3.2.31:
@@ -3166,6 +3172,15 @@ packages:
       - supports-color
     dev: true
 
+  /vue-router/4.0.15_vue@3.2.31:
+    resolution: {integrity: sha512-xa+pIN9ZqORdIW1MkN2+d9Ui2pCM1b/UMgwYUCZOiFYHAvz/slKKBDha8DLrh5aCG/RibtrpyhKjKOZ85tYyWg==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@vue/devtools-api': 6.1.4
+      vue: 3.2.31
+    dev: false
+
   /vue-tsc/0.33.2-patch.1_typescript@4.6.2:
     resolution: {integrity: sha512-Wr1b5Dt/fqJejBk9rHHCDhSbt/sU0pekUhmyupeKbAWw9eT2DTPn1od6N3dV9jdjGitqDESVRFsw6R1hSLdAQA==}
     hasBin: true
@@ -3237,13 +3252,14 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  file:my-lib-0.0.1.tgz:
-    resolution: {integrity: sha512-M/oxX39VWDJFw8QfX0w6nyEmyD0Q0tOlwy6gVDs+zBSU6802ngexkRX8xC6pljloJoO0MkXonZWPeDVNFPqR9w==, tarball: file:my-lib-0.0.1.tgz}
-    name: my-lib
+  file:vue3-virtual-scroll-0.0.1.tgz:
+    resolution: {integrity: sha512-I0Ud4XkWSXiXrJ9pQKzZBP4zs2f4RScoWUyny1MLYAIXLnKsbEifSriBCMA9FdgB/YXJk9mzx30XuI8447sg0g==, tarball: file:vue3-virtual-scroll-0.0.1.tgz}
+    name: vue3-virtual-scroll
     version: 0.0.1
     dependencies:
       '@vueuse/core': 8.1.1_vue@3.2.31
       vue: 3.2.31
+      vue-router: 4.0.15_vue@3.2.31
     transitivePeerDependencies:
       - '@vue/composition-api'
     dev: false

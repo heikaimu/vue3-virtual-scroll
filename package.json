@@ -1,5 +1,5 @@
 {
-  "name": "my-lib",
+  "name": "vue3-virtual-scroll",
   "version": "0.0.1",
   "main": "./dist/my-lib.umd.js",
   "module": "./dist/my-lib.es.js",
@@ -26,8 +26,9 @@
   },
   "dependencies": {
     "@vueuse/core": "^8.1.1",
-    "my-lib": "file:my-lib-0.0.1.tgz",
-    "vue": "^3.2.16"
+    "vue": "^3.2.16",
+    "vue-router": "^4.0.15",
+    "vue3-virtual-scroll": "file:vue3-virtual-scroll-0.0.1.tgz"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.18.8",
@@ -49,9 +50,9 @@
   },
   "respository": {
     "type": "git",
-    "url": "https://github.com/heikaimu/vue3-waterfall-plugin"
+    "url": "https://github.com/heikaimu/vue3-virtual-scroll"
   },
   "bugs": {
-    "url": "https://github.com/heikaimu/vue3-waterfall-plugin/issues"
+    "url": "https://github.com/heikaimu/vue3-virtual-scroll/issues"
   }
 }

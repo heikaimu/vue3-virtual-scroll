@@ -4,13 +4,11 @@
   },
   "1 debug pnpm:package-manifest": {
     "initial": {
-      "version": "0.0.1",
       "name": "my-lib",
-      "files": [
-        "dist"
-      ],
+      "version": "0.0.1",
       "main": "./dist/my-lib.umd.js",
       "module": "./dist/my-lib.es.js",
+      "types": "./dist/types/index.d.ts",
       "exports": {
         ".": {
           "import": "./dist/my-lib.es.js",
@@ -20,16 +18,19 @@
           "import": "./dist/style.css"
         }
       },
-      "types": "./dist/types/index.d.ts",
+      "files": [
+        "dist"
+      ],
       "scripts": {
         "dev": "vite",
-        "build-lib": "vite build --mode=lib && vue-tsc --declaration --emitDeclarationOnly && mv dist/src dist/types",
-        "build-example": "vue-tsc --noEmit && vite build --mode=example",
+        "build:npm": "cross-env TARGET=npm vite build && vue-tsc --declaration --emitDeclarationOnly && mv dist/lib dist/types",
+        "build:page": "cross-env TARGET=page vite build",
         "serve": "vite preview",
         "test": "vitest",
         "typecheck": "vue-tsc --noEmit"
       },
       "dependencies": {
+        "@vueuse/core": "^8.1.1",
         "my-lib": "file:my-lib-0.0.1.tgz",
         "vue": "^3.2.16"
       },
@@ -39,6 +40,7 @@
         "@vitejs/plugin-vue": "^1.9.3",
         "autoprefix": "^1.0.1",
         "autoprefixer": "^10.4.2",
+        "cross-env": "^7.0.3",
         "eslint": "^8.10.0",
         "postcss": "^8.4.8",
         "tailwindcss": "^3.0.23",
@@ -49,17 +51,24 @@
       },
       "eslintConfig": {
         "extends": "@antfu"
+      },
+      "respository": {
+        "type": "git",
+        "url": "https://github.com/heikaimu/vue3-waterfall-plugin"
+      },
+      "bugs": {
+        "url": "https://github.com/heikaimu/vue3-waterfall-plugin/issues"
       }
     },
-    "prefix": "/Users/liuyaowen/Desktop/personal/github/vue3-ts-lib"
+    "prefix": "/Users/liuyaowen/Desktop/personal/github/virtual-scroll"
   },
   "2 debug pnpm:context": {
     "currentLockfileExists": false,
     "storeDir": "/Users/liuyaowen/.pnpm-store/v3",
-    "virtualStoreDir": "/Users/liuyaowen/Desktop/personal/github/vue3-ts-lib/node_modules/.pnpm"
+    "virtualStoreDir": "/Users/liuyaowen/Desktop/personal/github/virtual-scroll/node_modules/.pnpm"
   },
   "3 debug pnpm:stage": {
-    "prefix": "/Users/liuyaowen/Desktop/personal/github/vue3-ts-lib",
+    "prefix": "/Users/liuyaowen/Desktop/personal/github/virtual-scroll",
     "stage": "resolution_started"
   },
   "4 debug pnpm:_dependency_resolved": {
@@ -103,6 +112,14 @@
     }
   },
   "9 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/cross-env/7.0.3",
+    "wanted": {
+      "dependentId": ".",
+      "name": "cross-env",
+      "rawSpec": "^7.0.3"
+    }
+  },
+  "10 debug pnpm:_dependency_resolved": {
     "resolution": "registry.npmjs.org/eslint/8.11.0",
     "wanted": {
       "dependentId": ".",
@@ -110,7 +127,7 @@
       "rawSpec": "^8.10.0"
     }
   },
-  "10 debug pnpm:_dependency_resolved": {
+  "11 debug pnpm:_dependency_resolved": {
     "resolution": "registry.npmjs.org/postcss/8.4.11",
     "wanted": {
       "dependentId": ".",
@@ -118,7 +135,7 @@
       "rawSpec": "^8.4.8"
     }
   },
-  "11 debug pnpm:_dependency_resolved": {
+  "12 debug pnpm:_dependency_resolved": {
     "resolution": "registry.npmjs.org/tailwindcss/3.0.23",
     "wanted": {
       "dependentId": ".",
@@ -126,7 +143,7 @@
       "rawSpec": "^3.0.23"
     }
   },
-  "12 debug pnpm:_dependency_resolved": {
+  "13 debug pnpm:_dependency_resolved": {
     "resolution": "registry.npmjs.org/typescript/4.6.2",
     "wanted": {
       "dependentId": ".",
@@ -134,7 +151,7 @@
       "rawSpec": "^4.4.3"
     }
   },
-  "13 debug pnpm:_dependency_resolved": {
+  "14 debug pnpm:_dependency_resolved": {
     "resolution": "registry.npmjs.org/vite/2.8.6",
     "wanted": {
       "dependentId": ".",
@@ -142,7 +159,7 @@
       "rawSpec": "^2.6.4"
     }
   },
-  "14 debug pnpm:_dependency_resolved": {
+  "15 debug pnpm:_dependency_resolved": {
     "resolution": "registry.npmjs.org/vitest/0.6.1",
     "wanted": {
       "dependentId": ".",
@@ -150,7 +167,7 @@
       "rawSpec": "^0.6.0"
     }
   },
-  "15 debug pnpm:_dependency_resolved": {
+  "16 debug pnpm:_dependency_resolved": {
     "resolution": "registry.npmjs.org/vue-tsc/0.33.2-patch.1",
     "wanted": {
       "dependentId": ".",
@@ -158,7 +175,15 @@
       "rawSpec": "^0.33.2-patch.1"
     }
   },
-  "16 debug pnpm:_dependency_resolved": {
+  "17 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@vueuse/core/8.1.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "@vueuse/core",
+      "rawSpec": "^8.1.1"
+    }
+  },
+  "18 debug pnpm:_dependency_resolved": {
     "resolution": "registry.npmjs.org/vue/3.2.31",
     "wanted": {
       "dependentId": ".",
@@ -166,17 +191,17 @@
       "rawSpec": "^3.2.16"
     }
   },
-  "17 error pnpm": {
+  "19 error pnpm": {
     "errno": -2,
     "code": "ENOENT",
     "syscall": "open",
-    "path": "/Users/liuyaowen/Desktop/personal/github/vue3-ts-lib/my-lib-0.0.1.tgz",
+    "path": "/Users/liuyaowen/Desktop/personal/github/virtual-scroll/my-lib-0.0.1.tgz",
     "pkgsStack": [],
     "err": {
       "name": "pnpm",
-      "message": "ENOENT: no such file or directory, open '/Users/liuyaowen/Desktop/personal/github/vue3-ts-lib/my-lib-0.0.1.tgz'",
+      "message": "ENOENT: no such file or directory, open '/Users/liuyaowen/Desktop/personal/github/virtual-scroll/my-lib-0.0.1.tgz'",
       "code": "ENOENT",
-      "stack": "pnpm: ENOENT: no such file or directory, open '/Users/liuyaowen/Desktop/personal/github/vue3-ts-lib/my-lib-0.0.1.tgz'"
+      "stack": "pnpm: ENOENT: no such file or directory, open '/Users/liuyaowen/Desktop/personal/github/virtual-scroll/my-lib-0.0.1.tgz'"
     }
   }
 }

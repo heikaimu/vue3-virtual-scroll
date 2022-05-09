@@ -5,11 +5,11 @@ import type { Props } from '../types'
 export function useStyle(props: Props, startIndex: ComputedRef<number>, endIndex: ComputedRef<number>) {
   // 上方填充高度
   const topFillHeight = computed(() => {
-    return startIndex.value * props.height
+    return startIndex.value / props.grid * props.height
   })
   // 下方填充高度
   const bottomFillHeight = computed(() => {
-    return (props.list.length - endIndex.value - 1) * props.height
+    return (~(props.list.length - endIndex.value) / props.grid - 1) * props.height
   })
   // 容器样式
   const containerStyle = computed(() => {

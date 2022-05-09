@@ -2,7 +2,7 @@
  * @Author: Yaowen Liu
  * @Date: 2022-03-11 16:26:27
  * @LastEditors: Yaowen Liu
- * @LastEditTime: 2022-05-07 17:18:31
+ * @LastEditTime: 2022-05-09 15:12:08
 -->
 <template>
   <div class="web-container">
@@ -26,7 +26,7 @@ body {
   background-color: #f2f2f2;
 }
 .web-container {
-  max-width: 600px;
+  max-width: 900px;
   width: 100%;
   margin: 0 auto;
 }

@@ -4,6 +4,10 @@ export const componentProps = {
     type: Array,
     default: () => [],
   },
+  grid: {
+    type: Number,
+    default: 1,
+  },
   // 单行高度
   height: {
     type: Number,
@@ -28,5 +32,10 @@ export const componentProps = {
   bufferCount: {
     type: Number,
     default: 4,
+  },
+  // 容器的class
+  wrapperClass: {
+    type: String,
+    default: '',
   },
 }

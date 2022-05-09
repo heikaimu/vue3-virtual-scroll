@@ -4,6 +4,14 @@ import { useContainer, useList, useMemory, useStyle } from '../composition'
 
 const props = defineProps(componentProps)
 
+const emits = defineEmits({
+  scroll: null,
+})
+
+const scrollCallback = (startIndex: number, endIndex: number) => {
+  emits('scroll', startIndex, endIndex)
+}
+
 // 容器相关
 const { scrollContainer, viewSize } = useContainer(props)
 // 列表
@@ -16,7 +24,7 @@ const {
   errorText,
   handleScroll,
   handleRefresh,
-} = useList(props, scrollContainer, viewSize)
+} = useList(props, scrollContainer, viewSize, scrollCallback)
 // 样式
 const { containerStyle } = useStyle(props, viewStartIndex, viewEndIndex)
 // 滚动位置缓存
@@ -26,7 +34,7 @@ useMemory(scrollContainer)
 
 <template>
   <div ref="scrollContainer" class="scroll-container" @scroll.passive="handleScroll">
-    <div :style="containerStyle">
+    <div :class="[wrapperClass]" :style="containerStyle">
       <template v-for="item in viewList" :key="item[rowKey]">
         <slot :item="item" />
       </template>

@@ -24,13 +24,19 @@ function onTouchEnd() {
     })
   })
 }
+
+function handleScroll(a: number, b: number) {
+  console.log('a:', a, 'b:', b)
+}
 </script>
 
 <template>
   <div class="content">
-    <VirtualScroll :list="list" :height="121" :on-touch-end="onTouchEnd">
+    <VirtualScroll wrapper-class="product-list" :grid="3" :list="list" :height="121" :on-touch-end="onTouchEnd" @scroll="handleScroll">
       <template #default="{ item }">
-        <ProductCard :details="item" />
+        <div class="product-item">
+          <ProductCard :details="item" />
+        </div>
       </template>
     </VirtualScroll>
   </div>
@@ -46,5 +52,12 @@ function onTouchEnd() {
 .content {
   height: 100vh;
   margin: 0 auto;
+}
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.product-item {
+  width: 33.33%;
 }
 </style>

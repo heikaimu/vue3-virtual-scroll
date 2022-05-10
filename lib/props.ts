@@ -33,9 +33,8 @@ export const componentProps = {
     type: Number,
     default: 4,
   },
-  // 容器的class
-  wrapperClass: {
-    type: String,
-    default: '',
+  wrapperStyle: {
+    type: Object,
+    default: () => {},
   },
 }

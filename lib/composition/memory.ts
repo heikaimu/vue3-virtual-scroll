@@ -9,6 +9,9 @@ export function useMemory(scrollContainer: Ref<HTMLElement | undefined>) {
     if (!scrollContainer.value)
       return
 
+    if (scrollContainer.value.scrollTop === scrollTopRecord.value)
+      return
+
     scrollContainer.value.scrollTop = scrollTopRecord.value
   })
 

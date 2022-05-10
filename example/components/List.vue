@@ -4,11 +4,13 @@ import { onMounted, ref } from 'vue'
 import { getList } from '../api/product'
 import { VirtualScroll } from '../../lib/index'
 // import 'vue3-virtual-scroll/style.css'
-
 import ProductCard from './ProductCard.vue'
 const list = ref<any[]>([])
+
+const vScroll = ref(null)
+
 onMounted(async() => {
-  list.value = await getList({ page: 1, pageSize: 50 })
+  list.value = await getList({ page: 1, pageSize: 250 })
 })
 
 function onTouchEnd() {
@@ -26,13 +28,20 @@ function onTouchEnd() {
 }
 
 function handleScroll(a: number, b: number) {
-  console.log('a:', a, 'b:', b)
+  // console.log('a:', a, 'b:', b)
+}
+
+function handleScrollToIndex() {
+  // vScroll.value.scrollToIndex(40)
 }
 </script>
 
 <template>
+  <button class="fixed left-0 top-0" @click="handleScrollToIndex">
+    点我
+  </button>
   <div class="content">
-    <VirtualScroll wrapper-class="product-list" :grid="3" :list="list" :height="121" :on-touch-end="onTouchEnd" @scroll="handleScroll">
+    <VirtualScroll ref="vScroll" :grid="3" :list="list" :height="121" :on-touch-end="onTouchEnd" @scroll="handleScroll">
       <template #default="{ item }">
         <div class="product-item">
           <ProductCard :details="item" />
@@ -58,6 +67,5 @@ function handleScroll(a: number, b: number) {
   flex-wrap: wrap;
 }
 .product-item {
-  width: 33.33%;
 }
 </style>

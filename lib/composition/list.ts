@@ -26,19 +26,29 @@ export function useList(props: Props, scrollContainer: Ref<HTMLElement | undefin
 
   // 滚动事件
   const handleScroll = useThrottleFn(() => {
-    if (!scrollContainer.value)
-      return
+    if (!scrollContainer.value) return
 
     // 设置当前列表开始索引
     startIndex.value = Math.max(0, ~~(scrollContainer.value.scrollTop / props.height)) * props.grid
 
     // 触底判断
-    if (startIndex.value + viewSize.value * props.grid >= props.list.length)
-      touchEndHandler()
+    if (startIndex.value + viewSize.value * props.grid >= props.list.length) touchEndHandler()
 
     // 传递参数给父级
     scrollCallback(toRaw(startIndex.value), toRaw(endIndex.value))
   }, 100)
+
+  /**
+   * 滚动到指定索引位置
+   * startIndex都是从一排的首位开始计算，所以先计算出有多少整数行，再 * grid
+   * @param index 列表索引
+   */
+  function scrollToIndex(index: number, offset = 0) {
+    if (!scrollContainer.value) return
+    const row = ~~(index / props.grid)
+    scrollContainer.value.scrollTop = row * props.height + offset
+    startIndex.value = row * props.grid
+  }
 
   // 状态锁，触发触底事件之后即锁住，避免反复触发，当完成请求后再解锁继续出发触底
   const locked = ref(false)
@@ -56,10 +66,14 @@ export function useList(props: Props, scrollContainer: Ref<HTMLElement | undefin
 
   // 触底回调函数
   function touchEndHandler() {
+    if (!props.onTouchEnd)
+      return
+
     if (!locked.value) {
       locked.value = true
 
       const touchEnd = props.onTouchEnd()
+
       if (touchEnd && touchEnd.then) {
         touchEnd.then(() => {
           loadError.value = false
@@ -89,5 +103,6 @@ export function useList(props: Props, scrollContainer: Ref<HTMLElement | undefin
     errorText,
     handleScroll,
     handleRefresh,
+    scrollToIndex,
   }
 }

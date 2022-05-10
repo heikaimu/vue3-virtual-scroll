@@ -24,9 +24,15 @@ const {
   errorText,
   handleScroll,
   handleRefresh,
+  scrollToIndex,
 } = useList(props, scrollContainer, viewSize, scrollCallback)
+
+defineExpose({
+  scrollToIndex,
+})
+
 // 样式
-const { containerStyle } = useStyle(props, viewStartIndex, viewEndIndex)
+const { containerStyle, itemStyle } = useStyle(props, viewStartIndex, viewEndIndex)
 // 滚动位置缓存
 useMemory(scrollContainer)
 
@@ -34,11 +40,13 @@ useMemory(scrollContainer)
 
 <template>
   <div ref="scrollContainer" class="scroll-container" @scroll.passive="handleScroll">
-    <div :class="[wrapperClass]" :style="containerStyle">
+    <ul :style="containerStyle">
       <template v-for="item in viewList" :key="item[rowKey]">
-        <slot :item="item" />
+        <li :style="itemStyle">
+          <slot :item="item" />
+        </li>
       </template>
-    </div>
+    </ul>
     <div v-show="locked" class="scroll-container__bottom">
       <div v-if="!loadError" class="loading-state">
         <span class="icon rotate">

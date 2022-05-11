@@ -5,6 +5,10 @@ import type { Props, ScrollCallBack } from '../types'
 
 // 列表
 export function useList(props: Props, scrollContainer: Ref<HTMLElement | undefined>, viewSize: Ref<number>, scrollCallback: ScrollCallBack) {
+  // 行高度
+  const rowHeight = computed(() => {
+    return props.height + props.rowSpace
+  })
   // 展示列表开始的索引
   const startIndex = ref(0)
   // 展示列表结束的索引
@@ -29,7 +33,7 @@ export function useList(props: Props, scrollContainer: Ref<HTMLElement | undefin
     if (!scrollContainer.value) return
 
     // 设置当前列表开始索引
-    startIndex.value = Math.max(0, ~~(scrollContainer.value.scrollTop / props.height)) * props.grid
+    startIndex.value = Math.max(0, ~~(scrollContainer.value.scrollTop / rowHeight.value)) * props.grid
 
     // 触底判断
     if (startIndex.value + viewSize.value * props.grid >= props.list.length) touchEndHandler()
@@ -46,7 +50,7 @@ export function useList(props: Props, scrollContainer: Ref<HTMLElement | undefin
   function scrollToIndex(index: number, offset = 0) {
     if (!scrollContainer.value) return
     const row = ~~(index / props.grid)
-    scrollContainer.value.scrollTop = row * props.height + offset
+    scrollContainer.value.scrollTop = row * rowHeight.value + offset
     startIndex.value = row * props.grid
   }
 

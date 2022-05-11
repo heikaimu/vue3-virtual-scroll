@@ -4,7 +4,7 @@
  * @Author: Yaowen Liu
  * @Date: 2021-10-18 16:22:04
  * @LastEditors: Yaowen Liu
- * @LastEditTime: 2022-05-10 17:25:53
+ * @LastEditTime: 2022-05-11 14:39:20
 -->
 
 # Vue3 虚拟滚动
@@ -47,6 +47,8 @@ import 'vue3-virtual-scroll/style.css'
 | `loadingText`     | `String`  | `加载中，请稍等`| 加载时候的文字显示 |
 | `bufferCount`     | `Number`  | `4`           | 上下的缓冲条数，解决滑动过快时白屏bug |
 | `wrapperStyle`    | `Object`  | `{}`          | 列表包裹容器的样式 |
+| `colSpace`        | `Number`  | `0`          | 列间距 |
+| `rowSpace`        | `Number`  | `0`          | 行间距 |
 | `onTouchEnd`      | `Function`| `function() {}`  | 触底回调函数 |
 
 #### `onTouchEnd` 使用方法

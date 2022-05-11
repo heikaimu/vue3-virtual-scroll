@@ -20,8 +20,8 @@ export const componentProps = {
   },
   // 触底函数
   onTouchEnd: {
-    type: Function,
-    default() { },
+    type: [Function, null],
+    default: null,
   },
   // 加载文字
   loadingText: {
@@ -36,5 +36,15 @@ export const componentProps = {
   wrapperStyle: {
     type: Object,
     default: () => {},
+  },
+  // 列间距
+  colSpace: {
+    type: Number,
+    default: 0,
+  },
+  // 行间距
+  rowSpace: {
+    type: Number,
+    default: 0,
   },
 }

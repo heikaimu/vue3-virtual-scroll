@@ -26,22 +26,27 @@ function onTouchEnd() {
     })
   })
 }
-
+const scrollText = ref('')
 function handleScroll(a: number, b: number) {
-  // console.log('a:', a, 'b:', b)
+  scrollText.value = `'startIndex:', ${a}, 'endIndex:', ${b}`
 }
 
 function handleScrollToIndex() {
-  // vScroll.value.scrollToIndex(40)
+  vScroll.value.scrollToIndex(100)
 }
 </script>
 
 <template>
-  <button class="fixed left-0 top-0" @click="handleScrollToIndex">
-    点我
-  </button>
+  <div class="fixed left-1 top-1">
+    <button class=" rounded-lg bg-gray-600 p-3 text-white" @click="handleScrollToIndex">
+      滚动到索引 100 的卡片
+    </button>
+    <div>
+      {{ scrollText }}
+    </div>
+  </div>
   <div class="content">
-    <VirtualScroll ref="vScroll" :grid="3" :list="list" :height="121" :on-touch-end="onTouchEnd" @scroll="handleScroll">
+    <VirtualScroll ref="vScroll" :row-space="10" :col-space="10" :grid="2" :list="list" :height="121" :on-touch-end="onTouchEnd" @scroll="handleScroll">
       <template #default="{ item }">
         <div class="product-item">
           <ProductCard :details="item" />
@@ -61,6 +66,7 @@ function handleScrollToIndex() {
 .content {
   height: 100vh;
   margin: 0 auto;
+  background-color: #333333;
 }
 .product-list {
   display: flex;

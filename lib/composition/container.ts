@@ -1,8 +1,12 @@
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import type { Props } from '../types'
 
 // 容器
 export function useContainer(props: Props) {
+  // 行高度
+  const rowHeight = computed(() => {
+    return props.height + props.rowSpace
+  })
   // 列表容器
   const scrollContainer = ref<HTMLElement>()
   // 展示的数量
@@ -12,7 +16,7 @@ export function useContainer(props: Props) {
     if (!scrollContainer.value)
       return
 
-    viewSize.value = ~~(scrollContainer.value.offsetHeight / props.height) + 2
+    viewSize.value = ~~(scrollContainer.value.offsetHeight / rowHeight.value) + 2
   })
 
   return {

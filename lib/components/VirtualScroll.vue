@@ -42,7 +42,7 @@ useMemory(scrollContainer)
   <div ref="scrollContainer" class="scroll-container" @scroll.passive="handleScroll">
     <ul :style="containerStyle">
       <template v-for="item in viewList" :key="item[rowKey]">
-        <li :style="itemStyle">
+        <li class="scroll-container__item" :style="itemStyle">
           <slot :item="item" />
         </li>
       </template>
@@ -90,6 +90,10 @@ useMemory(scrollContainer)
   width: 100%;
   height: 100%;
   overflow-y: auto;
+}
+
+.scroll-container__item {
+  list-style: none;
 }
 
 .scroll-container__bottom {

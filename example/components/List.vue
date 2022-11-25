@@ -1,12 +1,13 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 // import { VirtualScroll } from 'vue3-virtual-scroll'
 import { getList } from '../api/product'
 import { VirtualScroll } from '../../lib/index'
+import OrgForm from './OrgForm.vue'
 // import 'vue3-virtual-scroll/style.css'
 import ProductCard from './ProductCard.vue'
-const list = ref<any[]>([])
 
+const list = ref<any[]>([])
 const vScroll = ref(null)
 
 onMounted(async() => {
@@ -28,32 +29,43 @@ function onTouchEnd() {
 }
 const scrollText = ref('')
 function handleScroll(a: number, b: number) {
-  scrollText.value = `'startIndex:', ${a}, 'endIndex:', ${b}`
+  scrollText.value = `startIndex:, ${a}, endIndex:, ${b}`
 }
 
-function handleScrollToIndex() {
-  vScroll.value.scrollToIndex(100)
-}
+// function handleScrollToIndex() {
+// vScroll.value.scrollToIndex(100)
+// }
+
+const config = reactive({
+  grid: 2,
+  height: 121,
+  rowKey: 'id',
+  // onTouchEnd,
+  loadingText: '加载中，请稍等',
+  bufferCount: 4,
+  wrapperStyle: {},
+  colSpace: 10,
+  rowSpace: 10,
+})
 </script>
 
 <template>
-  <div class="fixed left-1 top-1">
-    <button class=" rounded-lg bg-gray-600 p-3 text-white" @click="handleScrollToIndex">
-      滚动到索引 100 的卡片
-    </button>
-    <div>
-      {{ scrollText }}
-    </div>
-  </div>
-  <div class="content">
-    <VirtualScroll ref="vScroll" :row-space="10" :col-space="10" :grid="2" :list="list" :height="121" :on-touch-end="onTouchEnd" @scroll="handleScroll">
-      <template #default="{ item }">
-        <div class="product-item">
-          <ProductCard :details="item" />
-        </div>
-      </template>
-    </VirtualScroll>
-  </div>
+  <el-row>
+    <el-col :span="8">
+      <OrgForm :form="config" />
+    </el-col>
+    <el-col :span="16">
+      <div class="content">
+        <VirtualScroll ref="vScroll" v-bind="config" :list="list" :on-touch-end="onTouchEnd" @scroll="handleScroll">
+          <template #default="{ item }">
+            <div class="product-item">
+              <ProductCard :details="item" />
+            </div>
+          </template>
+        </VirtualScroll>
+      </div>
+    </el-col>
+  </el-row>
 </template>
 
 <style>
@@ -66,7 +78,7 @@ function handleScrollToIndex() {
 .content {
   height: 100vh;
   margin: 0 auto;
-  background-color: #333333;
+  background-color: #f2f2f2;
 }
 .product-list {
   display: flex;

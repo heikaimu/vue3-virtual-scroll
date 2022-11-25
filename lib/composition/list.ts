@@ -13,7 +13,7 @@ export function useList(props: Props, scrollContainer: Ref<HTMLElement | undefin
   const startIndex = ref(0)
   // 展示列表结束的索引
   const endIndex = computed(() => {
-    return Math.min(startIndex.value + viewSize.value * props.grid, props.list.length - 1)
+    return Math.min(startIndex.value + viewSize.value * props.grid - 1, props.list.length - 1)
   })
   // 加上缓冲之后的开始索引
   const viewStartIndex = computed(() => {
@@ -25,7 +25,8 @@ export function useList(props: Props, scrollContainer: Ref<HTMLElement | undefin
   })
   // 展示列表
   const viewList = computed(() => {
-    return props.list.slice(viewStartIndex.value, viewEndIndex.value)
+    // 前闭后开，所以结束索引+1
+    return props.list.slice(viewStartIndex.value, viewEndIndex.value + 1)
   })
 
   // 滚动事件

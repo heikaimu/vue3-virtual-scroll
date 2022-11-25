@@ -2,10 +2,10 @@
  * @Author: Yaowen Liu
  * @Date: 2022-03-11 16:26:27
  * @LastEditors: Yaowen Liu
- * @LastEditTime: 2022-05-09 15:12:08
+ * @LastEditTime: 2022-05-12 13:14:23
 -->
 <template>
-  <div class="web-container">
+  <div>
     <router-view v-slot="{ Component }">
       <transition name="slide" mode="out-in">
         <keep-alive>

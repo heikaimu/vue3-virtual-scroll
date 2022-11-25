@@ -20,7 +20,7 @@ export const componentProps = {
   },
   // 触底函数
   onTouchEnd: {
-    type: [Function, null],
+    type: Function,
     default: null,
   },
   // 加载文字
@@ -35,7 +35,7 @@ export const componentProps = {
   },
   wrapperStyle: {
     type: Object,
-    default: () => {},
+    default: () => { },
   },
   // 列间距
   colSpace: {

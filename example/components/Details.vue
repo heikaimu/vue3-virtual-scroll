@@ -1,5 +1,5 @@
 <template>
-  <section class="h-screen bg-white text-gray-600 body-font overflow-hidden">
+  <section class="h-screen w-144 m-auto bg-white text-gray-600 body-font overflow-hidden">
     <header class="h-14 border-b border-gray-200 flex items-center">
       <router-link to="/list" class="p-2 cursor-pointer">
         返回

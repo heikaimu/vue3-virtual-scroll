@@ -1,6 +1,6 @@
 {
   "name": "vue3-virtual-scroll",
-  "version": "0.1.1",
+  "version": "0.1.5",
   "main": "./dist/my-lib.umd.js",
   "module": "./dist/my-lib.es.js",
   "types": "./dist/types/index.d.ts",
@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^8.1.1",
+    "element-plus": "^2.2.0",
     "vue": "^3.2.16",
     "vue-router": "^4.0.15"
   },

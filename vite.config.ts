@@ -2,7 +2,7 @@
  * @Author: Yaowen Liu
  * @Date: 2022-03-11 16:26:27
  * @LastEditors: Yaowen Liu
- * @LastEditTime: 2022-05-07 09:53:08
+ * @LastEditTime: 2022-12-29 15:48:55
  */
 import path from 'path'
 import { defineConfig } from 'vite'
@@ -20,6 +20,7 @@ if (target === 'npm') {
       entry: path.resolve(__dirname, 'lib/index.ts'),
       name: 'MyLib',
       fileName: (format: any) => `my-lib.${format}.js`,
+      formats: ['es']
     },
     rollupOptions: {
       external: ['vue'],

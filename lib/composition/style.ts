@@ -1,3 +1,9 @@
+/*
+ * @Date: 2022-05-07 13:13:34
+ * @LastEditors: Yaowen Liu
+ * @LastEditTime: 2023-01-04 14:08:31
+ * @FilePath: /vue3-virtual-scroll/lib/composition/style.ts
+ */
 import type { ComputedRef } from 'vue'
 import { computed } from 'vue'
 import type { Props } from '../types'

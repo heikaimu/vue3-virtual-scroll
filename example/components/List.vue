@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-05-07 15:10:08
  * @LastEditors: Yaowen Liu
- * @LastEditTime: 2023-02-24 10:13:36
+ * @LastEditTime: 2023-08-23 14:47:46
  * @FilePath: /vue3-virtual-scroll/example/components/List.vue
 -->
 <script lang="ts" setup>
@@ -38,13 +38,9 @@ function handleScroll(a: number, b: number) {
   scrollText.value = `startIndex:, ${a}, posy:, ${b}`
 }
 
-// function handleScrollToIndex() {
-// vScroll.value.scrollToIndex(100)
-// }
-
 const config = reactive({
   grid: 2,
-  height: 141,
+  height: 120,
   rowKey: 'id',
   // onTouchEnd,
   loadingText: '加载中，请稍等',
@@ -54,11 +50,18 @@ const config = reactive({
   rowSpace: 10,
 })
 
-function handleScrollTo(val:number) {
+const posy = ref(0)
+function handleScrollTo() {
   if (vScroll.value) {
-    vScroll.value.scrollToPos(val)
+    vScroll.value.scrollToPos(posy.value)
   }
+}
 
+const startIndex = ref(0)
+function handleScrollToIndex(val: number) {
+  if (vScroll.value) {
+    vScroll.value.scrollToIndex(startIndex.value)
+  }
 }
 
 </script>
@@ -66,10 +69,20 @@ function handleScrollTo(val:number) {
 <template>
   <el-row>
     <el-col :span="8">
-      <!-- <OrgForm :form="config" /> -->
-      {{scrollText}}
-      <p>-</p>
-      <button @click="handleScrollTo(200)">滚动到200</button>
+      <div style="padding: 10px; background-color: #fff;">
+        <el-divider>回调数据</el-divider>
+        {{scrollText}}
+        <el-divider>列数</el-divider>
+        <el-input-number v-model="config.grid" @change=""/>
+        <el-divider>滚动到y轴像素</el-divider>
+        <el-input-number v-model="posy"/>
+        &nbsp;
+        <el-button type="primary" @click="handleScrollTo">滚动到</el-button>
+        <el-divider>滚动到卡片索引</el-divider>
+        <el-input-number v-model="startIndex"/>
+        &nbsp;
+        <el-button type="primary" @click="handleScrollToIndex">滚动到</el-button>
+      </div>
     </el-col>
     <el-col :span="16">
       <div class="content">
@@ -95,12 +108,9 @@ function handleScrollTo(val:number) {
 .content {
   height: 100vh;
   margin: 0 auto;
-  background-color: #f2f2f2;
 }
 .product-list {
   display: flex;
   flex-wrap: wrap;
-}
-.product-item {
 }
 </style>

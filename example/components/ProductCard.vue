@@ -48,9 +48,9 @@ function handleClick() {
 
 <style scoped>
 .product-card {
+  height: 120px;
   display: flex;
   padding: 10px;
-  border-bottom: 1px solid #e7e7e7;
   background-color: #ffffff;
   cursor: pointer;
 }

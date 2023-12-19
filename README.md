@@ -11,7 +11,7 @@
 
 vue3 虚拟滚动列表，支持无限滚动加载，丝滑流畅的滚动体验
 
-[在线演示地址](https://vue3-virtual-scroll.netlify.app/)
+[在线演示地址](https://heikaimu.github.io/vue3-virtual-scroll/#/list)
 
 #### 安装
 

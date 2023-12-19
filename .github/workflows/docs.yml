@@ -1,0 +1,38 @@
+name: Build Page
+
+on:
+  push:
+    branches:
+      - master  # 替换成你的主要分支
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16  # 使用 Node.js 16
+
+    - name: Clear Node.js Cache
+      run: npm cache clean --force
+      # 清除npm缓存
+
+    - name: Install Dependencies
+      run: npm install
+      # 安装依赖
+
+    - name: Debug Current Directory
+      run: pwd
+      # 查看目录
+
+    - name: Check Directory Permissions
+      run: ls -l
+      # 查看权限
+
+    - name: Build Page
+      run: npm run build:page

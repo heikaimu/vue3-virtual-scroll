@@ -2,7 +2,7 @@
  * @Author: Yaowen Liu
  * @Date: 2022-03-11 16:26:27
  * @LastEditors: Yaowen Liu
- * @LastEditTime: 2022-12-29 15:48:55
+ * @LastEditTime: 2022-03-24 14:27:54
  */
 import path from 'path'
 import { defineConfig } from 'vite'
@@ -11,7 +11,7 @@ import vue from '@vitejs/plugin-vue'
 const target = process.env.TARGET
 
 let buildConfig: Record<string, unknown> = {
-  outDir: 'netlify-page',
+  outDir: 'docs',
 }
 
 if (target === 'npm') {
@@ -20,7 +20,6 @@ if (target === 'npm') {
       entry: path.resolve(__dirname, 'lib/index.ts'),
       name: 'MyLib',
       fileName: (format: any) => `my-lib.${format}.js`,
-      formats: ['es']
     },
     rollupOptions: {
       external: ['vue'],
@@ -34,10 +33,12 @@ if (target === 'npm') {
 }
 
 export default defineConfig({
-  build: { ...buildConfig },
+  base: './',
   plugins: [vue()],
   server: {
+    hmr: true,
+    port: 3000,
     host: '0.0.0.0',
-    open: true,
   },
+  build: { ...buildConfig },
 })
